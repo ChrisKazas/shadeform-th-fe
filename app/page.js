@@ -16,7 +16,7 @@ export default function Home() {
           throw new Error(`HTTP error ${response.status}`);
         }
         const data = await response.json();
-        console.log(data.instance_types)
+        // console.log(data.instance_types)
         setInstanceData(data.instance_types);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -31,15 +31,11 @@ export default function Home() {
     <main>
       <h2>Instance Types</h2>
 
-      <InstanceCard instanceData={instanceData} />
-      <ul>
-        {instanceData.map((type) => (
-          <div className="card">
-            <li key={type.cloud}>{type.cloud}</li>
-          </div>
-        ))}
-      </ul>
-      
+      {instanceData[0] ? (
+        <InstanceCard instanceData={instanceData[0]} />
+      ) : (
+        <p>No instance data available.</p>
+      )}
 
       <div className="flex justify-center my-8">
         <Link href="/create">

@@ -1,47 +1,52 @@
-import React from 'react'
+// components/InstanceCard.js
+import React from 'react';
 
-export default function InstanceCard() {
+const InstanceCard = ({ instanceData }) => {
+    console.log(instanceData)
+
     return (
-        <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden">
-            <div class="px-6 py-4">
-                <div class="font-bold text-xl mb-2">A5000x2 Instance</div>
-                <div class="text-gray-700 text-base">
-                    <p class="mb-2">
-                        <span class="font-semibold">Cloud:</span> jarvislabs
+        <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden">
+            <div className="px-6 py-4">
+                <div className="font-bold text-xl mb-2">{instanceData.shade_instance_type} Instance</div>
+                <div className="text-gray-700 text-base">
+                    <p className="mb-2">
+                        <span className="font-semibold">Cloud:</span> {instanceData.cloud}
                     </p>
-                    <p class="mb-2">
-                        <span class="font-semibold">Cloud Instance Type:</span> A5000
+                    <p className="mb-2">
+                        <span className="font-semibold">Cloud Instance Type:</span> {instanceData.cloud_instance_type}
                     </p>
-                    <p class="mb-2">
-                        <span class="font-semibold">GPU Type:</span> A5000
+                    <p className="mb-2">
+                        <span className="font-semibold">GPU Type:</span> {instanceData.gpu_type}
                     </p>
-                    <p class="mb-2">
-                        <span class="font-semibold">Interconnect:</span> pcie
+                    <p className="mb-2">
+                        <span className="font-semibold">Interconnect:</span> {instanceData.interconnect}
                     </p>
-                    <p class="mb-2">
-                        <span class="font-semibold">NVLink:</span> false
+                    <p className="mb-2">
+                        <span className="font-semibold">NVLink:</span> {instanceData.nvlink ? 'true' : 'false'}
                     </p>
                 </div>
             </div>
-            <div class="px-6 pt-4 pb-2">
-                <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                    #vcpus: 14
+            <div className="px-6 pt-4 pb-2">
+                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                    #vcpus: {instanceData.vcpus}
                 </span>
-                <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                    #memory: 64GB
+                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                    #memory: {instanceData.memory_in_gb}GB
                 </span>
-                <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                    #storage: 500GB
+                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                    #storage: {instanceData.storage_in_gb}GB
                 </span>
-                <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                    #gpus: 2
+                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                    #gpus: {instanceData.num_gpus}
                 </span>
             </div>
-            <div class="px-6 py-4">
-                <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                    $125/hr
+            <div className="px-6 py-4">
+                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                    ${instanceData.hourly_price}/hr
                 </span>
             </div>
         </div>
-    )
-}
+    );
+};
+
+export default InstanceCard;
