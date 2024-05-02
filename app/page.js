@@ -27,17 +27,25 @@ export default function Home() {
   }, []);
 
 
-  return 
+  return (
     <main>
       <h2>Instance Types</h2>
 
       {instanceData ? (
-        instanceData.map((instance) => (
-          <InstanceCard key={instance.cloud} instanceData={instance} />
+  instanceData.map((instance) => (
+    <InstanceCard key={instance.cloud} instanceData={instance} />
         ))
       ) : (
         <p>No instance data available.</p>
       )}
+
+      <div className="flex justify-center my-8">
+        <Link href="/create">
+          <button className="btn-primary">Create Instance</button>
+        </Link>
+      </div>
+
+      
     </main>
-  
+  )
 }
