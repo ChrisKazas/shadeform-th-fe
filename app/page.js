@@ -16,7 +16,7 @@ export default function Home() {
           throw new Error(`HTTP error ${response.status}`);
         }
         const data = await response.json();
-        // console.log(data.instance_types)
+
         setInstanceData(data.instance_types);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -27,23 +27,17 @@ export default function Home() {
   }, []);
 
 
-  return (
+  return 
     <main>
       <h2>Instance Types</h2>
 
-      {instanceData[0] ? (
-        <InstanceCard instanceData={instanceData[0]} />
+      {instanceData ? (
+        instanceData.map((instance) => (
+          <InstanceCard key={instance.cloud} instanceData={instance} />
+        ))
       ) : (
         <p>No instance data available.</p>
       )}
-
-      <div className="flex justify-center my-8">
-        <Link href="/create">
-          <button className="btn-primary">Create Instance</button>
-        </Link>
-      </div>
-
-      
     </main>
-  )
+  
 }

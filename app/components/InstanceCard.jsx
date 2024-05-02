@@ -1,11 +1,12 @@
 // components/InstanceCard.js
 import React from 'react';
+import CreateButton from './CreateButton';
 
 const InstanceCard = ({ instanceData }) => {
     console.log(instanceData)
 
     return (
-        <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden">
+        <div className="max-w-md mx-auto mb-4 bg-white rounded-xl shadow-md overflow-hidden">
             <div className="px-6 py-4">
                 <div className="font-bold text-xl mb-2">{instanceData.shade_instance_type} Instance</div>
                 <div className="text-gray-700 text-base">
@@ -44,6 +45,9 @@ const InstanceCard = ({ instanceData }) => {
                 <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
                     ${instanceData.hourly_price}/hr
                 </span>
+            </div>
+            <div className="float-right mr-4 mb-4">
+                <CreateButton instanceData={instanceData} />
             </div>
         </div>
     );

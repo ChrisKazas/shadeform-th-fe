@@ -5,8 +5,8 @@ export default function NavBar() {
     return (
         <nav>
             <h1>ShadeformAi</h1>
-            <Link href='/instances/create'>Create</Link>
-            <Link href='/'>Home</Link>
+            <Link href='/'>Instance List</Link>
+            <Link href='/instances'>Instances</Link>
         </nav>
     )
 }
