@@ -52,7 +52,7 @@ const InstanceCardList = () => {
     }
     const previous = (pageNumbers) => {
         if (currentPage != 1) {
-            setCurrentPage(currentPage + 1)
+            setCurrentPage(currentPage - 1)
         }
     }
 
