@@ -1,7 +1,7 @@
 import InstanceCard from './InstanceCard';
 import { useState, useEffect } from 'react';
 import Pagination from '../components/Pagination'
-
+import Scroll from 'react-scroll-component'
 
 const InstanceCardList = () => {
 
@@ -52,7 +52,9 @@ const InstanceCardList = () => {
     return (
         <div>
             <Pagination instancesPerPage={instancesPerPage} totalInstances={instanceData.length} paginate={paginate} />
-            {instanceCards}
+            <Scroll direction='vertical' height='40rem'>
+                {instanceCards}
+            </Scroll>
         </div>
     );
 }
