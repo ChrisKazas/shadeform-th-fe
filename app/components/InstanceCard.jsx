@@ -20,8 +20,6 @@ export default function InstanceCard({ instanceData }) {
         )
     }
 
-
-
     return (
         <div className=" mb-4 bg-white rounded-xl shadow-md overflow-hidden">
             <div className="px-6 py-4">
