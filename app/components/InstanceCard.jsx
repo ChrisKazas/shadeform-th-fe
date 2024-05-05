@@ -2,9 +2,7 @@
 import React from 'react';
 import CreateButton from './CreateButton';
 
-const InstanceCard = ({ instanceData }) => {
-    console.log(instanceData)
-
+export default function InstanceCard({ instanceData }) {
     return (
         <div className="max-w-md mx-auto mb-4 bg-white rounded-xl shadow-md overflow-hidden">
             <div className="px-6 py-4">
@@ -53,4 +51,5 @@ const InstanceCard = ({ instanceData }) => {
     );
 };
 
-export default InstanceCard;
+
+
