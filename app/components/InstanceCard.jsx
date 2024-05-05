@@ -4,7 +4,7 @@ import CreateButton from './CreateButton';
 
 export default function InstanceCard({ instanceData }) {
     return (
-        <div className="max-w-md mx-auto mb-4 bg-white rounded-xl shadow-md overflow-hidden">
+        <div className=" mb-4 bg-white rounded-xl shadow-md overflow-hidden">
             <div className="px-6 py-4">
                 <div className="font-bold text-xl mb-2">{instanceData.shade_instance_type} Instance</div>
                 <div className="text-gray-700 text-base">
