@@ -33,10 +33,10 @@ export default function InstanceCard({ instanceData }) {
                 </div>
             </div>
             <div className="px-6 pt-4 pb-2">
-                <Tag label={'#vcpus: '} value={instanceData.vcpus} />
+                <Tag label={'#vcpus:'} value={instanceData.vcpus} />
                 <Tag label={'#memory:'} value={`${instanceData.memory_in_gb}GB`} />
                 <Tag label={`#storage: `} value={`${instanceData.storage_in_gb}GB`} />
-                <Tag label={'#gpus: '} value={instanceData.num_gpus} />
+                <Tag label={'#gpus:'} value={instanceData.num_gpus} />
             </div>
             <div className="px-6 py-4">
                 <Tag label={`$${instanceData.hourly_price}/hr`} value={instanceData.num_gpus} />

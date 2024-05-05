@@ -40,10 +40,13 @@ const InstanceList = () => {
             <h2>Instance List</h2>
             <ul>
                 {instances.map((instance) => (
-                    <li key={instance.cloud}>
-                        <InstanceCard instanceData={instance} />
-                    </li>
+                    <div>
+                        <li key={instance.cloud}>
+                            <InstanceCard instanceData={instance} />
+                        </li>
+                    </div>
                 ))}
+
             </ul>
         </main>
     );
