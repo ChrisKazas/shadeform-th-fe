@@ -3,6 +3,17 @@ import React from 'react';
 import CreateButton from './CreateButton';
 
 export default function InstanceCard({ instanceData }) {
+
+    const Tag = ({ label, value }) => {
+        return (
+            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                {label} {value}
+            </span>
+        )
+    }
+
+
+
     return (
         <div className=" mb-4 bg-white rounded-xl shadow-md overflow-hidden">
             <div className="px-6 py-4">
@@ -26,23 +37,13 @@ export default function InstanceCard({ instanceData }) {
                 </div>
             </div>
             <div className="px-6 pt-4 pb-2">
-                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                    #vcpus: {instanceData.vcpus}
-                </span>
-                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                    #memory: {instanceData.memory_in_gb}GB
-                </span>
-                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                    #storage: {instanceData.storage_in_gb}GB
-                </span>
-                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                    #gpus: {instanceData.num_gpus}
-                </span>
+                <Tag label={'#vcpus: '} value={instanceData.vcpus} />
+                <Tag label={'#memory:'} value={`${instanceData.memory_in_gb}GB`} />
+                <Tag label={`#storage: `} value={`${instanceData.storage_in_gb}GB`} />
+                <Tag label={'#gpus: '} value={instanceData.num_gpus} />
             </div>
             <div className="px-6 py-4">
-                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                    ${instanceData.hourly_price}/hr
-                </span>
+                <Tag label={`$${instanceData.hourly_price}/hr`} value={instanceData.num_gpus} />
             </div>
             <div className="float-right mr-4 mb-4">
                 <CreateButton instanceData={instanceData} />

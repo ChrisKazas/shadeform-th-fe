@@ -60,14 +60,13 @@ const InstanceCardList = () => {
         <InstanceCard key={index} instanceData={instance} />
     ));
 
-    console.log(currentInstances)
     return (
-        <div>
+        <main>
             <Pagination instancesPerPage={instancesPerPage} totalInstances={instanceData.length} paginate={paginate} next={next} previous={previous} />
-            <Scroll direction='vertical' height='40rem'>
+            <Scroll direction='vertical' height='40rem' width='1000rem'>
                 {instanceCards}
             </Scroll>
-        </div>
+        </main>
     );
 }
 
