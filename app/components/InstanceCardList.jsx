@@ -40,9 +40,15 @@ const InstanceCardList = () => {
     const currentInstances = instanceData.slice(indexOfFirstInstance, indexOfLastInstance);
 
     const paginate = (pageNumber) => {
-        console.log(pageNumber)
         setCurrentPage(pageNumber)
     };
+
+    const next = () => {
+        setCurrentPage(currentPage + 1)
+    }
+    const previous = () => {
+        setCurrentPage(currentPage - 1)
+    }
 
     const instanceCards = currentInstances.map(instance => (
         <InstanceCard key={instance} instanceData={instance} />
@@ -51,7 +57,7 @@ const InstanceCardList = () => {
     console.log(currentInstances)
     return (
         <div>
-            <Pagination instancesPerPage={instancesPerPage} totalInstances={instanceData.length} paginate={paginate} />
+            <Pagination instancesPerPage={instancesPerPage} totalInstances={instanceData.length} paginate={paginate} next={next} previous={previous} />
             <Scroll direction='vertical' height='40rem'>
                 {instanceCards}
             </Scroll>
