@@ -41,17 +41,23 @@ const InstanceCardList = () => {
 
     const paginate = (pageNumber) => {
         setCurrentPage(pageNumber)
+
     };
 
-    const next = () => {
-        setCurrentPage(currentPage + 1)
+    const next = (pageNumbers) => {
+        if (currentPage != pageNumbers) {
+            setCurrentPage(currentPage + 1)
+        }
+
     }
-    const previous = () => {
-        setCurrentPage(currentPage - 1)
+    const previous = (pageNumbers) => {
+        if (currentPage != 1) {
+            setCurrentPage(currentPage + 1)
+        }
     }
 
-    const instanceCards = currentInstances.map(instance => (
-        <InstanceCard key={instance} instanceData={instance} />
+    const instanceCards = currentInstances.map((instance, index) => (
+        <InstanceCard key={index} instanceData={instance} />
     ));
 
     console.log(currentInstances)
