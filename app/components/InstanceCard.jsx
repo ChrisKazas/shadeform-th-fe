@@ -12,6 +12,14 @@ export default function InstanceCard({ instanceData }) {
         )
     }
 
+    const InstanceSpec = ({ label, value }) => {
+        return (
+            <p className="mb-2">
+                <span className="font-semibold">{label}:</span> {value}
+            </p>
+        )
+    }
+
 
 
     return (
@@ -19,21 +27,11 @@ export default function InstanceCard({ instanceData }) {
             <div className="px-6 py-4">
                 <div className="font-bold text-xl mb-2">{instanceData.shade_instance_type} Instance</div>
                 <div className="text-gray-700 text-base">
-                    <p className="mb-2">
-                        <span className="font-semibold">Cloud:</span> {instanceData.cloud}
-                    </p>
-                    <p className="mb-2">
-                        <span className="font-semibold">Cloud Instance Type:</span> {instanceData.cloud_instance_type}
-                    </p>
-                    <p className="mb-2">
-                        <span className="font-semibold">GPU Type:</span> {instanceData.gpu_type}
-                    </p>
-                    <p className="mb-2">
-                        <span className="font-semibold">Interconnect:</span> {instanceData.interconnect}
-                    </p>
-                    <p className="mb-2">
-                        <span className="font-semibold">NVLink:</span> {instanceData.nvlink ? 'true' : 'false'}
-                    </p>
+                    <InstanceSpec label={'Cloud'} value={instanceData.cloud} />
+                    <InstanceSpec label={'Cloud Instance Type'} value={instanceData.cloud_instance_type} />
+                    <InstanceSpec label={'GPU Type'} value={instanceData.gpu_type} />
+                    <InstanceSpec label={'Interconnect'} value={instanceData.interconnect} />
+                    <InstanceSpec label={'NVLink'} value={instanceData.nvlink ? 'true' : 'false'} />
                 </div>
             </div>
             <div className="px-6 pt-4 pb-2">
